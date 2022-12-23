@@ -1,0 +1,65 @@
+@charset "utf-8";
+.headerright {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+}
+
+.navsideseparator
+{
+border-right:1px solid #feecea;	
+}
+
+.navbottomseparator
+{
+border-bottom:1px solid #feecea;		
+}
+
+.tablestyle_leftcolumn
+{
+ font-family:corbel;
+ font-size:14px;
+ padding:5px;
+ border-right:1px solid #f1f1f1;
+}
+
+
+.rightcolumn
+{
+ font-family:corbel;
+ font-size:14px;
+ padding:5px;
+}
+
+.smallboxstyle
+{
+font-size:14px;
+padding:5px;
+border-bottom:1px dotted #FFA477;
+
+}
+
+.smallboxstyle a
+{
+text-decoration:none;
+color:#222222;	
+}
+
+.smallboxstyle a:hover
+{
+text-decoration:none;
+color:blue;	
+}
+
+.panelheader
+{
+  background-color:#09C;
+  color:#ffffff;
+  padding:3px;
+  cursor:pointer;	
+}
+
+.panelcontent
+{
+ display:none;	
+}
