@@ -1,3 +1,73 @@
+<?php
+			require_once("classes/Customer.php");
+			require_once("classes/Payment.php");
+
+			$err_flag = 0;
+			$err_msg = '';
+			if (isset($_POST['btnSubmit'])){
+							$amount = 2000*100;
+
+							//sanitize input from users
+							$sanitizer = filter_var_array($_POST, FILTER_SANITIZE_STRING);
+
+							// collect user's input from the form
+							$title = $sanitizer['title'];
+							$firstname = $sanitizer['firstname'];
+							$lastname = $sanitizer['lastname'];
+							$email = $sanitizer['email'];
+							$phone = $sanitizer['phone'];
+
+							// make sure all fields are filled accordingly
+							if (empty($title) or empty($firstname) or empty($lastname) or empty($email) or empty($phone)){
+									//header("location: acittex_2023_start_registration.php?eror=1");
+									$err_flag = 1;
+									$err_msg = "All fields are required to be filled to proceed...";
+
+							}else{
+									session_start();
+									$_SESSION['title'] = $title;
+									$_SESSION['firstname'] = $firstname;
+									$_SESSION['lastname'] = $lastname;
+									$_SESSION['phone'] = $phone;
+									$_SESSION['email'] = $email;
+									$_SESSION['amount'] = $amount;
+
+									$customer = new Customer();
+									$check_customer = $customer->check_customer_by_email($email);
+
+									if (!$check_customer){
+												$data = array("title"=>$title, "firstname"=>$firstname, "lastname"=>$lastname, "phone"=>$phone, "email"=>$email,
+																			"amount"=>$amount);
+												$create_customer = $customer->create_customer($data);
+									}
+
+									$callback_url = 'http://localhost/acnf/accitext_payment_status.php';
+									$payment = new Payment();
+									$authorization = $payment->payment_authorization($email, $amount, $callback_url);
+
+									//var_dump($authorization_url);
+
+									if ($authorization->status){
+												$authorization_url = $authorization->data->authorization_url;
+												$access_code = $authorization->data->access_code;
+												$reference = $authorization->data->reference;
+
+												$_SESSION['access_code'] = $access_code;
+												$_SESSION['reference'] = $reference;
+
+												header("location: {$authorization_url}");
+									}
+
+							} // end of else
+
+			} // end if isset
+
+
+
+
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -40,7 +110,7 @@ body {
 
 
 
-				<form action="payment_accitext.php" method="post">
+				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
         <div style='margin-top:50px;margin-bottom:100px;'>
 					<form id="paymentForm"> <!-- form //-->
@@ -136,7 +206,7 @@ body {
 												</td>
 												<td>
 													<div class="form-group">
-																	<button type="submit" onclick="payWithPaystack()" style='padding:7px; font-weight:bold;cursor:pointer;'> Payment </button>
+																	<button type="submit" name="btnSubmit" style='padding:7px; font-weight:bold;cursor:pointer;'> Payment </button>
 													</div>
 												</td>
 										</tr>

@@ -5,12 +5,12 @@
 <script src="js/appEngine.js"></script>
 <script language="javascript">
 <!-- hide from old browsers
-slidemage1= new Image(946,218); 
-slidemage1.src="slideimages/bnr2.jpg"; 
-slidemage2= new Image(946,218); 
-slidemage2.src="slideimages/bnr3.jpg"; 																																																																																															
-slidemage3= new Image(946,218); 
-slidemage3.src="slideimages/bnr4.jpg"; 
+slidemage1= new Image(946,218);
+slidemage1.src="slideimages/bnr2.jpg";
+slidemage2= new Image(946,218);
+slidemage2.src="slideimages/bnr3.jpg";
+slidemage3= new Image(946,218);
+slidemage3.src="slideimages/bnr4.jpg";
 trade01 = new Image(231,114);
 trade01.src = "images/trade01.png";
 trade02 = new Image(231,114);
@@ -32,7 +32,7 @@ africef.src = "images/africef_2016.png";
 <table width="946" border="0" align="center" cellpadding="2px">
  <tr>
     <td height="80"><img src="images/logo3_120.png" alt="logo" align="left"><div style="margin-top:30px;font-family:cambria;color:#069;font-size:26px;font-weight:bold;">African Caribbean Network Foundation</div><div></div><span style="color:#E36C0A;font-weight:bold;"><em>...Bridging the African-Caribbean Gap</em></span><div></td>
-    <td align="right" valign="top" class="headerright"><font size="1"><a style="text-decoration:none;color:#000000;" href="index.php">HOME</a> | <a style="text-decoration:none;color:#000000;" href="http://www.acnfoundation.org/webmail">WEBMAIL</a> | <a style="text-decoration:none;color:#000000;" href="contact.php">CONTACT US</a></font><br>
+    <td align="right" valign="top" class="headerright"><font size="1"><a style="text-decoration:none;color:#000000;" href="index.php">HOME</a> | <a style="text-decoration:none;color:#000000;" href="http://www.acnfoundation.com/webmail">WEBMAIL</a> | <a style="text-decoration:none;color:#000000;" href="contact.php">CONTACT US</a></font><br>
       <br></td>
   </tr>
   <tr>
@@ -43,7 +43,7 @@ africef.src = "images/africef_2016.png";
         <li  class="navbottomseparator"><a href="aboutus.php#foundation">The Foundation</a></li>
           <li  class="navbottomseparator"><a href="aboutus.php#vision">Vision</a></li>
           <li class="navbottomseparator"><a href="aboutus.php#mission">Mission</a></li>
-          <li class="navbottomseparator"><a href="aboutus.php#corevalues">Core Values</a></li>         
+          <li class="navbottomseparator"><a href="aboutus.php#corevalues">Core Values</a></li>
         </ul>
       </li>
       <li class="navsideseparator"><a href="management.php">Management</a></li>
